@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:22:41 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/28 11:01:35 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/08/28 12:20:10 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ unsigned short Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
+	if (_grade <= 1)
+
+		_grade--;
 }
 void Bureaucrat::decrementGrade()
 {
+	if (_grade >= 150)
+
+		_grade++;
 }
