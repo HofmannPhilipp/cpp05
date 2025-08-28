@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:22:50 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/28 10:38:41 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/08/28 16:09:31 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ private:
 	unsigned short _grade;
 
 public:
+	class GradeTooHighException;
+	class GradeTooLowException;
+
 	Bureaucrat();
-	Bureaucrat(const std::string &name, unsigned short &grade);
+	Bureaucrat(const std::string &name, unsigned short grade);
 	~Bureaucrat();
 	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat &operator=(const Bureaucrat &other);
@@ -31,3 +34,5 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 };
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b);
