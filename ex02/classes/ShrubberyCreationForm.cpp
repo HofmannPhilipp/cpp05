@@ -6,18 +6,18 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:28:48 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/01 14:38:29 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:43:45 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm::AForm("Default_shrubbery", false, 145, 137), _target("Default_Target")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm::AForm("ShrubberyCreationForm", false, 145, 137), _target("Default_Target")
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-	: AForm::AForm(target + "_shrubbery", false, 145, 137), _target(target)
+	: AForm::AForm("ShrubberyCreationForm", false, 145, 137), _target(target)
 {
 }
 
@@ -39,7 +39,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::executeAction() const
 {
-	std::ofstream file(this->_target);
+	std::ofstream file(this->_target + "_shrubbery");
 	if (!file)
 		throw std::runtime_error("Could not open file");
 
