@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:36:21 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/01 13:17:31 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:05:10 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class PresidentialPardonForm : public AForm
 {
+private:
+    std::string _target;
+
 public:
     PresidentialPardonForm();
     PresidentialPardonForm(const std::string &target);
