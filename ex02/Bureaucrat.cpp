@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:22:41 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/29 11:33:36 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 13:46:30 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 
 void Bureaucrat::signForm(AForm &form)
 {
-
 	try
 	{
 		form.beSigned(*this);
@@ -72,6 +71,20 @@ void Bureaucrat::signForm(AForm &form)
 	catch (const std::exception &e)
 	{
 		std::cerr << *this << " couldn’t sign " << form << " because " << e.what() << '\n';
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << *this << " couldn’t execute " << form
+				  << " because: " << e.what() << std::endl;
 	}
 }
 

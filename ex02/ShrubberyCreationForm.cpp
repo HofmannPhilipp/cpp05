@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:28:48 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/29 13:21:48 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 13:50:20 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm::AForm("Default", false, 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
 	: AForm::AForm(target + "_shrubbery", false, 145, 137)
 {
-	// if (signGrade < 1 || executeGrade < 1)
-	// 	throw ShrubberyCreationForm::GradeTooHighException();
-	// if (signGrade > 150 || executeGrade > 150)
-	// 	throw ShrubberyCreationForm::GradeTooLowException();
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm::AForm(other)

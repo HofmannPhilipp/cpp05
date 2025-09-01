@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:22:50 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/29 11:33:25 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 13:18:52 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	Bureaucrat &operator=(const Bureaucrat &other);
 
 	void signForm(AForm &form);
+	void executeForm(AForm const &form) const;
 
 	const std::string getName() const;
 	unsigned short getGrade() const;
