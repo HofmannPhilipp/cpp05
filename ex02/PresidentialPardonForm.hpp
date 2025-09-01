@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/29 10:45:53 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/29 13:33:13 by phhofman         ###   ########.fr       */
+/*   Created: 2025/09/01 11:36:21 by phhofman          #+#    #+#             */
+/*   Updated: 2025/09/01 11:37:32 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 public:
-	RobotomyRequestForm();
-	RobotomyRequestForm(const std::string &target);
-	~RobotomyRequestForm();
-	RobotomyRequestForm(const RobotomyRequestForm &other);
-	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+    PresidentialPardonForm();
+    PresidentialPardonForm(const std::string &target);
+    ~PresidentialPardonForm();
+    PresidentialPardonForm(const PresidentialPardonForm &other);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 
-	void executeAction() const override;
+    void executeAction() const override;
 };

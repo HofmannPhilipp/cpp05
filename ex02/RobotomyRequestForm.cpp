@@ -6,18 +6,18 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:45:50 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/29 13:52:02 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/01 11:41:17 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm::AForm("Default_shrubbery", false, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm::AForm("Default", false, 72, 45)
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-	: AForm::AForm(target + "_shrubbery", false, 145, 137)
+	: AForm::AForm(target, false, 145, 137)
 {
 	// if (signGrade < 1 || executeGrade < 1)
 	// 	throw RobotomyRequestForm::GradeTooHighException();
@@ -47,5 +47,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void RobotomyRequestForm::executeAction() const
 {
+	std::cout << "Bzzzzzzzzz... *drilling noises* 🛠️" << std::endl;
 
+	std::srand(static_cast<unsigned>(std::time(nullptr)));
+	if (std::rand() % 2 == 0)
+		std::cout << this->getName() << " has been robotomized successfully 🤖✅" << std::endl;
+	else
+		std::cout << "The robotomy of " << this->getName() << " has failed ❌" << std::endl;
 }
