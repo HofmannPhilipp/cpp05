@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:21:58 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/02 09:36:34 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:05:35 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int main(void)
 
 	try
 	{
-
 		// Create Bureaucrats with different grades
 		Bureaucrat low("LowGrade", 150);
 		Bureaucrat mid("MidGrade", 50);

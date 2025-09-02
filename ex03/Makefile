@@ -1,6 +1,6 @@
 NAME = main
 CXX = c++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -I./inc
+CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -I./inc -g -gdwarf-4
 
 VPATH = ./classes
 

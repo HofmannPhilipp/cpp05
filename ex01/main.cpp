@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:21:58 by phhofman          #+#    #+#             */
-/*   Updated: 2025/08/28 17:42:50 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/02 09:44:13 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main(void)
 		Form f3("TopSecret", false, 50, 50); // requires grade 50 to sign
 		b1.signForm(f3);					 // should fail
 	}
-	catch (...)
+	catch (const std::exception &e)
 	{
 		std::cout << "Unexpected exception in test 3\n";
 	}
@@ -60,7 +60,7 @@ int main(void)
 		b2.signForm(f4);				  // should succeed
 		std::cout << f4 << "\n";		  // use operator<< for Form
 	}
-	catch (...)
+	catch (const std::exception &e)
 	{
 		std::cout << "Unexpected exception in test 4\n";
 	}
@@ -74,7 +74,7 @@ int main(void)
 		b3.signForm(f5);				   // should succeed
 		std::cout << f5 << "\n";
 	}
-	catch (...)
+	catch (const std::exception &e)
 	{
 		std::cout << "Unexpected exception in test 5\n";
 	}

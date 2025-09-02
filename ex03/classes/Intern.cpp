@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 14:56:27 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/02 09:36:14 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:07:30 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,22 @@ Intern::~Intern() {};
 
 AForm *Intern::makeForm(const std::string &name, const std::string &target)
 {
-    std::string levels[] = {"shrubbery", "robotomy", "presidential"};
+    std::string formTypes[] = {"shrubbery", "robotomy", "presidential"};
+
+    AForm *(*constructors[])(const std::string &) =
+        {
+            [](const std::string &target) -> AForm *
+            { return new ShrubberyCreationForm(target); },
+            [](const std::string &target) -> AForm *
+            { return new RobotomyRequestForm(target); },
+            [](const std::string &target) -> AForm *
+            { return new PresidentialPardonForm(target); },
+        };
 
     for (int i = 0; i < 3; i++)
     {
-        if (levels[i] == name)
-        {
-            switch (i)
-            {
-            case 0:
-                std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
-                return new ShrubberyCreationForm(target);
-            case 1:
-                std::cout << "Intern creates RobotomyRequestForm" << std::endl;
-                return new RobotomyRequestForm(target);
-            case 2:
-                std::cout << "Intern creates PresidentialPardonForm" << std::endl;
-                return new PresidentialPardonForm(target);
-            }
-        }
+        if (formTypes[i] == name)
+            return constructors[i](target);
     }
 
     std::cerr << "Error: Unknown form name " << name << std::endl;
