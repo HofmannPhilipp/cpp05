@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 10:21:58 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/01 13:49:24 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/02 09:36:34 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,60 +15,58 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
 int main(void)
 {
+	Intern ryan;
+
+	// Valid forms
+	AForm *form1 = ryan.makeForm("shrubbery", "Garden");
+	std::cout << *form1 << std::endl;
+
+	AForm *form2 = ryan.makeForm("robotomy", "R2D2");
+	std::cout << *form2 << std::endl;
+
+	AForm *form3 = ryan.makeForm("presidential", "Arthur");
+	std::cout << *form3 << std::endl;
+
+	// Invalid form name
+	AForm *form4 = ryan.makeForm("unknown_form", "Nobody");
+	if (form4)
+		std::cout << *form4 << std::endl;
+
 	try
 	{
+
 		// Create Bureaucrats with different grades
 		Bureaucrat low("LowGrade", 150);
 		Bureaucrat mid("MidGrade", 50);
 		Bureaucrat high("HighGrade", 1);
 
-		// -------------------------------
 		// 1. ShrubberyCreationForm test
-		std::cout << "\n// 1. ShrubberyCreationForm Test\n";
-		ShrubberyCreationForm shrub("Garden");
-		std::cout << shrub << std::endl;
-
 		// Attempt signing with low-grade bureaucrat (should fail)
-		low.signForm(shrub);
+		low.signForm(*form1);
 		// Mid-grade bureaucrat signs successfully
-		mid.signForm(shrub);
-		// Execution by mid-grade (may fail if executeGrade too high)
-		mid.executeForm(shrub);
+		mid.signForm(*form1);
+		// Execution by mid-grade
+		mid.executeForm(*form1);
 
-		// Execution by high-grade (should succeed)
-		high.executeForm(shrub);
-
-		// -------------------------------
 		// 2. RobotomyRequestForm test
-		std::cout << "\n// 2. RobotomyRequestForm Test\n";
-		RobotomyRequestForm robo("Bender");
-		std::cout << robo << std::endl;
-
-		// Sign with mid-grade bureaucrat (check grade requirements)
-		mid.executeForm(robo);
-		mid.signForm(robo);
-
+		// Sign with mid-grade bureaucrat
+		mid.executeForm(*form2);
+		mid.signForm(*form2);
 		// Execute with high-grade bureaucrat
-		high.executeForm(robo);
+		high.executeForm(*form2);
 
-		// -------------------------------
 		// 3. PresidentialPardonForm test
-		std::cout << "\n// 3. PresidentialPardonForm Test\n";
-		PresidentialPardonForm pardon("Fry");
-		std::cout << pardon << std::endl;
-
 		// Attempt signing with mid-grade bureaucrat (should fail)
-		mid.signForm(pardon);
-
+		mid.signForm(*form3);
 		// High-grade bureaucrat signs successfully
-		high.signForm(pardon);
-
+		high.signForm(*form3);
 		// Execute with high-grade bureaucrat
-		high.executeForm(pardon);
+		high.executeForm(*form3);
 	}
 	catch (const std::exception &e)
 	{

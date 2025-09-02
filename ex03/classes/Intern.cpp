@@ -6,7 +6,7 @@
 /*   By: phhofman <phhofman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 14:56:27 by phhofman          #+#    #+#             */
-/*   Updated: 2025/09/01 15:27:30 by phhofman         ###   ########.fr       */
+/*   Updated: 2025/09/02 09:36:14 by phhofman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 Intern::Intern() {};
 
-Intern::Intern(const Intern &other) : Intern() {};
+Intern::Intern(const Intern &other) : Intern()
+{
+    (void)other;
+};
 
 Intern &Intern::operator=(const Intern &other)
 {
+    (void)other;
     return *this;
 }
 
